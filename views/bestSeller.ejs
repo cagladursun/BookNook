@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-1">
+        <a href="/BookNook" class="btn button1">
+            <img src="images/logo.png" width="200px">
+         </a>
+         <div class="category">
+            <button>Category  
+                <form><i class="fa-solid fa-caret-down"></i></form>      
+            </button>
+            <div class="content">
+                <a href="#" id="Literature">Literature</a>
+                <a href="#" id="Biography">Biography</a>
+                <a href="#" id="Classic">Classic</a>
+                <a href="#" id="Fantastic">Fantastic</a>
+                <a href="#" id="History">History</a>
+                <a href="#" id="Science-Fiction">Science Fiction</a>
+                <a href="#" id="Psychology">Psychology</a>
+                <a href="#" id="Horror">Horror</a>
+                <a href="#" id="Thriller">Thriller</a>
+                <a href="#" id="Romance">Romance</a>
+                <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                <a href="#" id="Mystery">Mystery</a>
+                <a href="#" id="Poetry">Poetry</a>
+                <a href="#" id="Self-Improvement">Self Improvement</a>
+                <a href="#" id="Religion">Religion</a>
+                <div id="output"></div>
+            </div>
+        </div>
+        <form action="/search" method="post">
+            <input type="text" name="searchBox" class="search-form">
+            <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+          </form>
+        <div class="icons">
+            <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+            <div id="login-btn" class="fas fa-user" ></div>
+        </div>
+    </div>
+</header>
+<div class="register-form" id="registerForm">
+    <div id="close-register-btn" class="fas fa-times"></div>
+    <form action="/register" method="post">
+        <h3>Register</h3>
+        <input type="email" name="email" placeholder="enter your email" id="email">
+        <span>Username</span>
+        <input type="name" name="user_name" placeholder="enter your username" id="">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="receive-notifications">
+            <label for="receive-notifications"> I would like to receive curated bookseller recommendations, exclusive offers, and promotional emails.</label>
+        </div>
+        <input type="submit" value="Create Account" class="btn button2">
+        <p> By clicking "Create Account" you agree to the BookNook's <a href="term.html">Terms of Use</a></p>
+    </form>
+</div> 
+<div class="login-form">
+    <div id="close-login-btn" class="fas fa-times"></div>
+    <form action="/login" method="post">
+        <h3>Sign in</h3>
+        <span>Username/Email</span>
+        <input type="text" name="email" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn button2">
+        <div id="forgotPassword">Forgot password? <a href="#" id="forgotPassword-btn">Click here</a></div>
+        <div id="createAccount">Don't have an account? <a href="#" id="register-btn">Create one</a></div>
+        <div id="adminAccount"><a href="#" id="admin-btn">Log in as an Admin</a></div>
+    </form>
+</div>
+<div class="forgot-form" id="forgotForm">
+    <div id="close-forgot-btn" class="fas fa-times"></div>
+    <form action="/forgot" method="post">
+        <h3>Password</h3>
+        <span>Username/Email</span>
+        <input type="text" name="email" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your new password" id="">
+        <input type="submit" value="Change" class="btn button2">
+    </form>
+</div>
+
+
+<div class="admin-form" id="adminForm">
+    <div id="close-admin-btn" class="fas fa-times"></div>
+    <form action="/admin" method="post">
+        <h3>Sign in</h3>
+        <span>Username/Email</span>
+        <input type="text" name="user_name" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn button2">
+    </form>
+</div>
+
+
+
+
+<main>
+  
+<% if (locals.book && locals.book.imagePaths) { %>
+    <% for (let i = 0; i < locals.book.imagePaths.length; i++) { %>
+      
+        <div class="card">
+            <form action="/bookPage" method="POST">
+                <button type="submit" class="imageOfBook">
+                    <input type="hidden" name="itemId" value="<%= i %>">
+                    <img src="<%= locals.book.imagePaths[i] %>" alt="">
+                    <p class="secret"><i class="fa-solid fa-magnifying-glass"></i></p>
+                  </button>
+            </form>
+          
+          <div class="caption">
+            <p class="rate">
+              <% for(let j=0; j<locals.book.rating[i]; j++){%>
+                <i class="fa-solid fa-star"></i>
+              <% } %>
+            </p>
+            <p class="product_name"><%= locals.book.productName[i] %></p>
+            <p class="price"><b>$ <%= locals.book.price[i] %> </b></p>
+          </div>
+          <div class="atc"> 
+            <form action="/added" method="POST">
+                <input type="hidden" name="itemId" value="<%= i %>">
+                <button type="submit">Add to Cart </button>
+            </form>
+        </div>
+        </div>
+      
+    <% } %>
+  <% } else { %>
+    <h1>error</h1>
+  <% } %>
+</main>
+
+<div id="footer-container"></div>
+<script src="script.js"></script>
+</body>
+</html>
+

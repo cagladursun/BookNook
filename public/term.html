@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+    <title>Terms of Use</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+    <div class="register-form" id="registerForm">
+        <div id="close-register-btn" class="fas fa-times"></div>
+        <form action="/register" method="post">
+            <h3>Register</h3>
+            <input type="email" name="email" placeholder="enter your email" id="email">
+            <span>Username</span>
+            <input type="name" name="user_name" placeholder="enter your username" id="">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="receive-notifications">
+                <label for="receive-notifications"> I would like to receive curated bookseller recommendations, exclusive offers, and promotional emails.</label>
+            </div>
+            <input type="submit" value="Create Account" class="btn button2">
+            <p> By clicking "Create Account" you agree to the BookNook's <a href="term.html">Terms of Use</a></p>
+        </form>
+    </div> 
+    <div class="login-form">
+        <div id="close-login-btn" class="fas fa-times"></div>
+        <form action="/login" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+            <div id="forgotPassword">Forgot password? <a href="#" id="forgotPassword-btn">Click here</a></div>
+            <div id="createAccount">Don't have an account? <a href="#" id="register-btn">Create one</a></div>
+            <div id="adminAccount"><a href="#" id="admin-btn">Log in as an Admin</a></div>
+        </form>
+    </div>
+    <div class="forgot-form" id="forgotForm">
+        <div id="close-forgot-btn" class="fas fa-times"></div>
+        <form action="/forgot" method="post">
+            <h3>Password</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your new password" id="">
+            <input type="submit" value="Change" class="btn button2">
+        </form>
+    </div>
+
+
+    <div class="admin-form" id="adminForm">
+        <div id="close-admin-btn" class="fas fa-times"></div>
+        <form action="/admin" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="user_name" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+        </form>
+    </div>
+
+
+
+    <div class="pr">
+    <h2>Last Updated: 03.01.2024</h2>
+    <p>Welcome to BookNook! By accessing and using our website, you agree to comply with and be bound by the following terms and conditions of use. Please read these terms carefully before using our website.</p>
+    <h2></h2>
+    <h2>Acceptance of Terms  </h2>
+    <p>By accessing or using the BookNook, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use our website.</p>
+    <h2>Use of the Website </h2>
+    <p>You agree to use the BookNook for lawful purposes only and in a manner consistent with all applicable local, national, and international laws and regulations.</p>
+    <h2>Intellectual Property </h2>
+    <p>All content and materials available on the BookNook, including but not limited to text, graphics, logos, button icons, images, and data compilations, are the property of BookNook or its content suppliers and are protected by copyright laws.</p>
+    <h2>User Accounts</h2> 
+    <p>If you create an account on our website, you are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account or password.</p>
+    <h2>Ordering and Purchases</h2>
+    <p>When you purchase on our website, you agree to provide accurate, current, and complete information about yourself as prompted by the order form. You also agree to update your information to keep it accurate, current, and complete.</p>
+    <h2>Privacy Policy </h2>
+    <p>Our Privacy Policy, available on our website, outlines how we collect, use, disclose, and manage your personal information. By using our website, you consent to the practices described in our Privacy Policy.</p>
+    <h2>Links to Third-Party Websites </h2>
+    <p>The BookNook may contain links to third-party websites. These links are provided for your convenience and do not signify our endorsement of such websites. We have no control over the content of third-party websites and are not responsible for their content or accuracy.</p>
+    <h2>Limitation of Liability</h2> 
+    <p>BookNook is not liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way connected with the use of our website or the inability to use our website.</p>
+    <h2>Termination</h2> 
+    <p>We reserve the right to terminate or suspend your access to the BookNook without prior notice for any reason, including, without limitation, a breach of these Terms of Use.</p>
+    <h2>Changes to Terms </h2>
+    <p>BookNook reserves the right to change, modify, or revise these Terms of Use at any time. Your continued use of the website after such changes are made signifies your acceptance of the new terms.</p>
+    <h2>Contact Information </h2>
+    <p>If you have any questions or concerns about these Terms of Use, please contact us at booknook@gmail.com.</p>
+    <h2>Thank you for visiting BookNook! Happy reading!</h2>
+    </div>
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

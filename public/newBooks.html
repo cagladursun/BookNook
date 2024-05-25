@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="newB.css">
+  <title>Add New Book</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+    <div class="newbook-form">
+    <form action="/addBook" method="post" enctype="multipart/form-data">
+        <h1>Add New Book</h1>
+        <label for="Book_name">Book Name:</label>
+        <input type="text" id="Book_name" name="Book_name" required><br>
+
+        <label for="Author">Author:</label>
+        <input type="text" id="Author" name="Author" required><br>
+
+        <label for="Publication_Year">Publication Year:</label>
+        <input type="number" id="Publication_Year" name="Publication_Year" required><br>
+        
+        <label for="Publisher">Publisher:</label>
+        <input type="text" id="Publisher" name="Publisher" required><br>
+
+        <label for="Page_count">Number of pages:</label>
+        <input type="number" id="Page_count" name="Page_count" required><br>
+        
+        <label for="Price">Price:</label>
+        <input type="number" id="Price" name="Price" required><br>
+
+        <label for="Cover_Type">Type Of The Cover :</label>
+        <input type="text" id="Cover_Type" name="Cover_Type" required><br>
+
+        <label for="Category">Category:</label>
+        <input type="text" id="Category" name="Category" required><br>
+
+        <label for="Summary">Summary :</label>
+        <input type="text" id="Summary" name="Summary" required><br>
+
+
+        <label for="book_cover">Book Cover:</label>
+        <input type="file" id="book_cover" name="book_cover" accept=".jpg, .jpeg, .png" required><br>
+
+        <button type="submit">Add Book</button>
+  </form>
+    </div>
+  
+
+
+  <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

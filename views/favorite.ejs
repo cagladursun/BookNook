@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+    <div class="box"> 
+        <div class="head">
+            <p>  </p>
+            <p> Product Name</p>
+            <p> Price</p>
+            <p> Add To Cart</p>
+            <p> Delete</p>
+        </div>
+    </div>
+    <% if (locals.book.imagePaths.length ==0) { %>
+        <div class="alert">
+            <h2> There is no book in the favorites</h2>
+        </div>
+        
+    <% } else { %>
+        <% if (locals.book && locals.book.imagePaths) { %>
+            <ul>
+            <% for (let i = 0; i < locals.book.imagePaths.length; i++) { %>
+            <div class="box">  
+                <form action="/bookPage" method="POST">
+                    <button type="submit" class="imgB">
+                        <input type="hidden" name="itemId" value="<%= i %>">
+                        
+                        <img src="<%= locals.book.imagePaths[i] %>" alt="">
+                        <p class="secret"><i class="fa-solid fa-magnifying-glass"></i></p>
+                      </button>
+                </form>  
+                <div class="proName"><%= locals.book.productName[i] %></div>
+                <div class="price">$ <%= locals.book.price[i] %></div>
+                <div class="atc"> 
+                    <form action="/added" method="POST">
+                        <input type="hidden" name="itemId" value="<%= i %>">
+                        <input type="hidden" name="ejsFileName" value="f">
+                        <button type="submit">Add to Cart </button>
+                    </form>
+                </div>
+                <div class="dlt"> 
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="itemId" value="<%= i %>">
+                        <input type="hidden" name="ejsFileName" value="f">
+                        <button type="submit">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+        </ul>
+        <% } else { %>
+            <h1>error</h1>
+        <% } %>
+    <% } %>
+   
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

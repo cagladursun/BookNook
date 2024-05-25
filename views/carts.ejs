@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+    <% if (locals.user_cart && locals.user_cart.book.imagePaths) { %>
+        <div class="shoppingCart">
+            <h1 class="heading">
+                <i class="fa-solid fa-cart-shopping"> Shopping Cart</i>
+            </h1>
+            <div class="item-flex">
+            <% if (locals.user_cart.method == "credit") { %>  
+                <section class="checkout">
+                    <h2 class="section-heading">Payment Details</h2>
+                    <div class="payment-form">
+                        <div class="payment-method">
+                            <form action="/method" method="POST">
+                                <input type="hidden" name="itemId" value="credit">
+                                <button type="submit" class="method selected" id="credit">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>Credit Card</span>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </button>
+                            </form>
+                            <form action="/method" method="POST">
+                                <input type="hidden" name="itemId" value="pay">
+                                <button type="submit" class="method" id="pay">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    <span>Pay at the door + $9.90</span>
+                                    <i class="fa-regular fa-circle-check"></i>
+                                </button>
+                            </form>
+                            
+                        </div>
+                        <form action="#" id="creditCardForm" onsubmit="return validateCreditCardForm()">
+                            <div class="cardholder-name">
+                              <label for="cardholder-name" class="label-default">Cardholder Name</label>
+                              <input type="text" name="cardholder-name" id="cardholderName" class="input-default" required>
+                            </div>
+                        
+                            <div class="card-number">
+                              <label for="card-number" class="label-default">Card Number</label>
+                              <input type="text" name="card-number" id="cardNumber" class="input-default" required pattern="\d{16}" placeholder="Enter 16-digit card number">
+                            </div>
+                        
+                            <div class="input-flex">
+                              <label for="expire-date" class="label-default">Expiration Date</label>
+                              <div class="input-flex">
+                                <input type="number" name="day" id="expireDay" placeholder="31" min="1" max="31" class="input-default">
+                                /
+                                <input type="number" name="month" id="expireMonth" placeholder="12" min="1" max="12" class="input-default">
+                              </div>
+                        
+                              <div class="cvv">
+                                <label for="cvv" class="label-default">CVV</label>
+                                <input type="text" name="cvv" id="cvv" class="input-default" required pattern="\d{3}" placeholder="Enter 3-digit CVV">
+                              </div>
+                            </div>
+                            
+                            <h2 class="section-heading">Shipment Company</h2>
+                                <% for (let i = 0; i < locals.user_cart.shipment.shipName.length; i++) { %>
+                                    <h1 class="box">
+                                        <div class="checkbox" >
+                                            <input type="checkbox" name="ship" class="selectable-shipment" id="ship<%= i %>" value="<%= i %>">
+                                            <span id="shipN"><%= locals.user_cart.shipment.shipName[i]%></span>
+                                            <span id="stime"><%=locals.user_cart.shipment.time[i]%> day</span>
+                                            <span id="sprice">$ <%= locals.user_cart.shipment.price[i] %></span>
+                                        
+                                        </div>
+                                    </h1>  
+                                <% } %>   
+                            <button type="submit" class="btn btn-primary" id="continue">
+                              <b>Continue</b>
+                            </button>
+                          </form>
+                    
+                    </div>
+                    
+                </section>
+             <% } else { %>
+                <section class="checkout">
+                    <h2 class="section-heading">Payment Details</h2>
+                    <div class="payment-form">
+                        <div class="payment-method">
+                            <form action="/method" method="POST">
+                                <input type="hidden" name="itemId" value="credit">
+                                <button type="submit" class="method" id="credit">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>Credit Card</span>
+                                    <i class="fa-regular fa-circle-check"></i>
+                                </button>
+                            </form>
+                            <form action="/method" method="POST">
+                                <input type="hidden" name="itemId" value="pay">
+                                <button type="submit" class="method selected" id="pay">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    <span>Pay at the door + $ 9.90</span>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </button>
+                            </form>
+                        </div>    
+                    </div>  
+                    
+                    <h2 class="section-heading">Shipment Company</h2>
+                <% for (let i = 0; i < locals.user_cart.shipment.shipName.length; i++) { %>
+                        <h1 class="box">
+                            <div class="checkbox" >
+                                <input type="checkbox" name="ship" class="selectable-shipment" id="ship<%= i %>" value="<%= i %>">
+                                <span id="shipN"><%= locals.user_cart.shipment.shipName[i]%></span>
+                                <span id="stime"><%=locals.user_cart.shipment.time[i]%> day</span>
+                                <span id="sprice">$ <%= locals.user_cart.shipment.price[i] %></span>
+                            
+                            </div>
+                        </h1>  
+                <% } %>  
+                
+                <form action="/selected" method="GET">
+                    <button type="submit" class="btn btn-primary" id="continue">
+                        <b>Continue</b>
+                    </button>
+                </form>
+                </section>   
+                   
+                
+            <% } %>
+                <section class="cart">
+                    <div class="wrapper">
+                        <div class="discount-token">
+                            <label for="discount-token" class="label-default">Gift card</label>
+                            <div class="wrapper-flex">
+                                <input type="text" name="discount-token" id="discount-token" class="input-default">
+                                <button class="btn btn-outline">Apply</button>
+                            </div>
+                        
+                        </div>
+                        
+                        <div class="amount"> 
+
+                            <div class="total">
+                                <span>Total</span> $ <span id="total"><%=locals.user_cart.totalPrice%> </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <h2 class="section-heading">Order Summary</h2>
+                    <% for (let i = 0; i < locals.user_cart.book.imagePaths.length; i++) { %>
+                    <div class="cart-item-box">
+                        
+                        <div class="product-card">
+                            <div class="card">
+                                <form action="/bookPage" method="POST">
+                                    <button type="submit" class="img-box">
+                                        <input type="hidden" name="itemId" value="<%= i %>">
+                                        <img src="<%= locals.user_cart.book.imagePaths[i] %>" alt="" width="80px" class="product-img">
+                                        
+                                    </button>
+                                </form>  
+                                <div class="detail">
+                                    <h4 class="product-name"><%= locals.user_cart.book.productName[i] %></h4>
+                                    <div class="wrapper">
+                                        <div class="product-qty">
+                                            <form action="/decrement" method="POST">
+                                                <button id="decrement">
+                                                    <input type="hidden" name="itemId" value="<%= i %>">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </button>
+                                                
+                                            </form>  
+                                            <span id="quantity"><%=locals.user_cart.amount[i]%></span>
+                                            
+                                            <form action="/added" method="POST">
+                                                <button id="increment">
+                                                    <input type="hidden" name="itemId" value="<%= i %>">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
+                                            </form>  
+                                            
+                                        </div>
+                                        <div class="price">
+                                            $<span id="price"><%= locals.user_cart.book.price[i] %></span>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="dlt"> 
+                                    <form action="/deletecart" method="POST">
+                                        <input type="hidden" name="itemId" value="<%= i %>">
+                                        <input type="hidden" name="ejsFileName" value="cart">
+                                        <button type="submit" id="product-close-btn">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                <% } %>
+                    
+                </section>
+
+            </div>
+            
+        </div>
+    <% } %>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

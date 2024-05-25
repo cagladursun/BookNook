@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns and Refund Policy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+   <div class="register-form" id="registerForm">
+        <div id="close-register-btn" class="fas fa-times"></div>
+        <form action="/register" method="post">
+            <h3>Register</h3>
+            <input type="email" name="email" placeholder="enter your email" id="email">
+            <span>Username</span>
+            <input type="name" name="user_name" placeholder="enter your username" id="">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="receive-notifications">
+                <label for="receive-notifications"> I would like to receive curated bookseller recommendations, exclusive offers, and promotional emails.</label>
+            </div>
+            <input type="submit" value="Create Account" class="btn button2">
+            <p> By clicking "Create Account" you agree to the BookNook's <a href="term.html">Terms of Use</a></p>
+        </form>
+    </div> 
+    <div class="login-form">
+        <div id="close-login-btn" class="fas fa-times"></div>
+        <form action="/login" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+            <div id="forgotPassword">Forgot password? <a href="#" id="forgotPassword-btn">Click here</a></div>
+            <div id="createAccount">Don't have an account? <a href="#" id="register-btn">Create one</a></div>
+            <div id="adminAccount"><a href="#" id="admin-btn">Log in as an Admin</a></div>
+        </form>
+    </div>
+    <div class="forgot-form" id="forgotForm">
+        <div id="close-forgot-btn" class="fas fa-times"></div>
+        <form action="/forgot" method="post">
+            <h3>Password</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your new password" id="">
+            <input type="submit" value="Change" class="btn button2">
+        </form>
+    </div>
+
+
+    <div class="admin-form" id="adminForm">
+        <div id="close-admin-btn" class="fas fa-times"></div>
+        <form action="/admin" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="user_name" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+        </form>
+    </div>
+
+
+
+
+    <div class="pr">
+    <h2>BookNook Customer Support</h2>
+    <p>Welcome to BookNook Customer Support! We're here to assist you and ensure you have a seamless experience. If you have any questions, concerns, or need help, please refer to the following support options:</p>
+    <h2>FAQs (Frequently Asked Questions): </h2>
+    <p>Before reaching out, check our FAQs section. It covers a range of common queries and might provide an instant answer to your question.</p>
+    <h2>Contact Us:</h2> 
+    <p>If you can't find the information you need in the FAQs, feel free to reach out to us directly. You can contact our Customer Support team via email at booknook@gmail.com or through the Contact Form on our website. Please provide as much detail as possible to help us assist you promptly.</p>
+    <h2>Live Chat: </h2>
+    <p>For real-time assistance, we offer a Live Chat feature on our website. Look for the chat icon, and our support agents will be happy to help you during business hours.</p>
+    <h2>Phone Support:</h2> 
+    <p>If you prefer speaking with someone directly, you can contact our Customer Support team by phone at +90 542 *******. Our phone lines are open during regular business hours.</p>
+    <h2>Order Status: </h2>
+    <p>To check the status of your order, please log in to your account on our website. You can view your order history and track the shipping status of your purchases.</p>
+    <h2>Returns and Refunds: </h2>
+    <p>Information about our return policy and refund process can be found in the "Returns and Refunds" section on our website. If you need further assistance with a return, contact our Customer Support team.</p>
+    <h2>Technical Support: </h2>
+    <p>If you encounter technical issues while using our website, please let us know. Provide details about the problem you're experiencing, including any error messages, and our technical support team will investigate and assist you.</p>
+    <h2>Suggestions and Feedback: </h2>
+    <p>We value your feedback! If you have suggestions or comments about our website, selection, or services, we'd love to hear from you. Use the contact options mentioned above to share your thoughts.</p>
+    <h2>Social Media: </h2>
+    <p>Connect with us on social media platforms such as Instagram, Twitter, and Facebook. Stay updated on promotions, and new releases, and engage with our community. You can also send us direct messages for support-related inquiries.</p>
+    <h2>Thank you for choosing BookNook. We appreciate your business and are dedicated to providing you with excellent customer service. Happy reading!</h2>
+
+       
+    </div>
+    
+
+
+    
+
+
+
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

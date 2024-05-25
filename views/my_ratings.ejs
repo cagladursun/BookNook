@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-1">
+        <a href="/BookNook" class="btn button1">
+            <img src="images/logo.png" width="200px">
+         </a>
+         <div class="category">
+            <button>Category  
+                <form><i class="fa-solid fa-caret-down"></i></form>      
+            </button>
+            <div class="content">
+                <a href="#" id="Literature">Literature</a>
+                <a href="#" id="Biography">Biography</a>
+                <a href="#" id="Classic">Classic</a>
+                <a href="#" id="Fantastic">Fantastic</a>
+                <a href="#" id="History">History</a>
+                <a href="#" id="Science-Fiction">Science Fiction</a>
+                <a href="#" id="Psychology">Psychology</a>
+                <a href="#" id="Horror">Horror</a>
+                <a href="#" id="Thriller">Thriller</a>
+                <a href="#" id="Romance">Romance</a>
+                <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                <a href="#" id="Mystery">Mystery</a>
+                <a href="#" id="Poetry">Poetry</a>
+                <a href="#" id="Self-Improvement">Self Improvement</a>
+                <a href="#" id="Religion">Religion</a>
+                <div id="output"></div>
+            </div>
+        </div>
+        <form action="/search" method="post">
+            <input type="text" name="searchBox" class="search-form">
+            <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+          </form>
+        <div class="icons">
+            <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+            <div id="login-btn" class="fas fa-user" ></div>
+        </div>
+    </div>
+</header>
+
+<main>
+  
+<% if (locals.my_rating) { %>
+    <% for (let i = 0; i < locals.my_rating.rating.length; i++) { %>
+        <div class="card2">
+          <div class="book_name">
+            <p>Book Name: <%= locals.my_rating.Book_Name[i] %></p>
+          </div>
+          <div class="rating">
+            <p>Rating: <%= locals.my_rating.rating[i] %> <i class="fa-solid fa-star"></i> </p>
+          </div>
+          <div class="comment">
+            <p>Comment: <%= locals.my_rating.user_comment[i] %></p>
+          </div>
+        </div>
+      
+    <% } %>
+  <% } else { %>
+    <h1>error</h1>
+  <% } %>
+</main>
+
+<div id="footer-container"></div>
+ <script src="script.js"></script>
+</body>
+</html>

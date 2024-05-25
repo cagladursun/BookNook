@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns and Refund Policy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-1">
+        <a href="/BookNook" class="btn button1">
+            <img src="images/logo.png" width="200px">
+         </a>
+         <div class="category">
+            <button>Category  
+                <form><i class="fa-solid fa-caret-down"></i></form>      
+            </button>
+            <div class="content">
+                <a href="#" id="Literature">Literature</a>
+                <a href="#" id="Biography">Biography</a>
+                <a href="#" id="Classic">Classic</a>
+                <a href="#" id="Fantastic">Fantastic</a>
+                <a href="#" id="History">History</a>
+                <a href="#" id="Science-Fiction">Science Fiction</a>
+                <a href="#" id="Psychology">Psychology</a>
+                <a href="#" id="Horror">Horror</a>
+                <a href="#" id="Thriller">Thriller</a>
+                <a href="#" id="Romance">Romance</a>
+                <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                <a href="#" id="Mystery">Mystery</a>
+                <a href="#" id="Poetry">Poetry</a>
+                <a href="#" id="Self-Improvement">Self Improvement</a>
+                <a href="#" id="Religion">Religion</a>
+                <div id="output"></div>
+            </div>
+        </div>
+        <form action="/search" method="post">
+          <input type="text" name="searchBox" class="search-form">
+          <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+        </form>
+        <div class="icons">
+            <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+            <div id="login-btn" class="fas fa-user" ></div>
+        </div>
+    </div>
+</header>
+
+<div class="register-form" id="registerForm">
+    <div id="close-register-btn" class="fas fa-times"></div>
+    <form action="/register" method="post">
+        <h3>Register</h3>
+        <input type="email" name="email" placeholder="enter your email" id="email">
+        <span>Username</span>
+        <input type="name" name="user_name" placeholder="enter your username" id="">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="receive-notifications">
+            <label for="receive-notifications"> I would like to receive curated bookseller recommendations, exclusive offers, and promotional emails.</label>
+        </div>
+        <input type="submit" value="Create Account" class="btn button2">
+        <p> By clicking "Create Account" you agree to the BookNook's <a href="term.html">Terms of Use</a></p>
+    </form>
+</div> 
+<div class="login-form">
+    <div id="close-login-btn" class="fas fa-times"></div>
+    <form action="/login" method="post">
+        <h3>Sign in</h3>
+        <span>Username/Email</span>
+        <input type="text" name="email" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn button2">
+        <div id="forgotPassword">Forgot password? <a href="#" id="forgotPassword-btn">Click here</a></div>
+        <div id="createAccount">Don't have an account? <a href="#" id="register-btn">Create one</a></div>
+        <div id="adminAccount"><a href="#" id="admin-btn">Log in as an Admin</a></div>
+    </form>
+</div>
+<div class="forgot-form" id="forgotForm">
+    <div id="close-forgot-btn" class="fas fa-times"></div>
+    <form action="/forgot" method="post">
+        <h3>Password</h3>
+        <span>Username/Email</span>
+        <input type="text" name="email" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your new password" id="">
+        <input type="submit" value="Change" class="btn button2">
+    </form>
+</div>
+
+
+<div class="admin-form" id="adminForm">
+    <div id="close-admin-btn" class="fas fa-times"></div>
+    <form action="/admin" method="post">
+        <h3>Sign in</h3>
+        <span>Username/Email</span>
+        <input type="text" name="user_name" placeholder="enter your email" id="email">
+        <span>Password</span>
+        <input type="password" name="password_" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn button2">
+    </form>
+</div>
+
+
+
+
+    <div class="pr">
+        <h1>BookNook FAQ</h1>
+
+        <h2>General Questions:</h2>
+        <p>
+          <strong>What is BookNook about?</strong><br>
+          BookNook is an online platform where you can buy and sell new or used books. It connects book enthusiasts, offering a wide range of genres and titles.
+        </p>
+      
+        <p>
+          <strong>How do I buy a book on BookNook?</strong><br>
+          To buy a book, simply browse through the available listings, choose the book you want, and follow the checkout process. You can pay securely using various payment methods.
+        </p>
+      
+        <h2>Buying Books:</h2>
+        <p>
+          <strong>Is it safe to make purchases on BookNook?</strong><br>
+          Yes, BookNook prioritizes the security of your transactions. We use secure payment gateways to ensure the safety of your personal and financial information.
+        </p>
+      
+        <p>
+          <strong>Are the book conditions accurately described?</strong><br>
+          Sellers are encouraged to provide honest and accurate descriptions of the book conditions. You can also communicate directly with the seller for additional information.
+        </p>
+      
+        <p>
+          <strong>What payment methods are accepted?</strong><br>
+          BookNook accepts various payment methods, including credit/debit cards, PayPal, and other secure payment options.
+        </p>
+      
+        <h2>Selling Books:</h2>
+        <p>
+          <strong>How do I list my books for sale on BookNook?</strong><br>
+          After creating an account, navigate to your seller dashboard on BookNook and choose the "List a Book" option. Fill in the required details, upload images, and set a price.
+        </p>
+      
+        <p>
+          <strong>Is there a fee for selling books on BookNook?</strong><br>
+          BookNook may charge a small fee for listing or selling books. Refer to our fee structure for detailed information.
+        </p>
+      
+        <p>
+          <strong>How do I handle shipping on BookNook?</strong><br>
+          Sellers are responsible for shipping their sold books on BookNook. Specify your shipping methods and costs when listing your book. Provide tracking information to ensure a smooth transaction.
+        </p>
+      
+        <h2>Account Management:</h2>
+        <p>
+          <strong>How do I reset my password on BookNook?</strong><br>
+          You can reset your password on the BookNook login page by clicking on the "Forgot Password" link and following the instructions sent to your registered email.
+        </p>
+      
+        <p>
+          <strong>Can I delete my account on BookNook?</strong><br>
+          Yes, you can delete your account on BookNook by contacting our customer support. Keep in mind that this action is irreversible, and any ongoing transactions will be affected.
+        </p>
+      
+        <h2>Customer Support:</h2>
+        <p>
+          <strong>How can I contact customer support on BookNook?</strong><br>
+          You can reach out to our customer support team on BookNook through the "Contact Us" page or by emailing support@email.com. We strive to respond to inquiries within 24 hours.
+        </p>
+      
+        <p>
+          <strong>What should I do if I encounter a problem with my order on BookNook?</strong><br>
+          Contact the seller first to resolve any issues on BookNook. If the problem persists, reach out to our customer support team, and we will assist in finding a solution.
+        </p>
+       
+    </div>
+    
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

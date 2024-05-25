@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookNook</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-1">
+            <a href="/BookNook" class="btn button1">
+                <img src="images/logo.png" width="200px">
+             </a>
+             <div class="category">
+                <button>Category  
+                    <form><i class="fa-solid fa-caret-down"></i></form>      
+                </button>
+                <div class="content">
+                    <a href="#" id="Literature">Literature</a>
+                    <a href="#" id="Biography">Biography</a>
+                    <a href="#" id="Classic">Classic</a>
+                    <a href="#" id="Fantastic">Fantastic</a>
+                    <a href="#" id="History">History</a>
+                    <a href="#" id="Science-Fiction">Science Fiction</a>
+                    <a href="#" id="Psychology">Psychology</a>
+                    <a href="#" id="Horror">Horror</a>
+                    <a href="#" id="Thriller">Thriller</a>
+                    <a href="#" id="Romance">Romance</a>
+                    <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                    <a href="#" id="Mystery">Mystery</a>
+                    <a href="#" id="Poetry">Poetry</a>
+                    <a href="#" id="Self-Improvement">Self Improvement</a>
+                    <a href="#" id="Religion">Religion</a>
+                    <div id="output"></div>
+                </div>
+            </div>
+            <form action="/search" method="post">
+                <input type="text" name="searchBox" class="search-form">
+                <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+              </form>
+            <div class="icons">
+                <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+                <div id="login-btn" class="fas fa-user" ></div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+      <div class="announcements">
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <div class="slide first">
+                    <a href="#" class="btn button1">
+                        <img src="images/an1.png" alt="">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="#" class="btn button1">
+                        <img src="images/an2.png" alt="">
+                    </a>
+                    
+                </div>
+                <div class="slide">
+                    <a href="#" class="btn button1">
+                        <img src="images/an3.png" alt="">
+                    </a>
+                    
+                </div>
+                <div class="slide">
+                    <a href="#" class="btn button1"><img src="images/an4.png" alt=""></a>
+                    
+                </div>
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+            </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+     </div>
+        <div class="butN">
+            <div class="newReleases">
+              <a href="/newR" class="btn button1">
+                <img src="images/newR.png" alt="" >
+              </a>
+            </div>
+            <div class="comingSoon"> 
+                <a href="/coming" class="btn button1">
+                    <img src="images/Cs.png" alt="" width="100px">
+                </a>
+            </div>
+            <div class="popularAuthors">
+                <a href="/popularA" class="btn button1">
+                    <img src="images/PA.png" alt="" width="100px">
+                </a>
+            </div>
+            <div class="popularPublishers">
+                <a href="/popularP" class="btn button1">
+                    <img src="images/PP.png" alt="" width="100px">
+                </a>    
+            </div>
+            <div class="bestSeller">
+                <a href="/bestSeller" class="btn button1">
+                    <img src="images/BS.png" alt="" width="100px">
+                </a>  
+            </div>
+            <div class="movieAd">
+                <a href="/movieAd" class="btn button1">
+                    <img src="images/MA.png" alt="" width="100px">
+                </a>  
+            </div> 
+        </div>
+        
+    </div>
+    <div class="register-form" id="registerForm">
+        <div id="close-register-btn" class="fas fa-times"></div>
+        <form action="/register" method="post">
+            <h3>Register</h3>
+            <input type="email" name="email" placeholder="enter your email" id="email">
+            <span>Username</span>
+            <input type="name" name="user_name" placeholder="enter your username" id="">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="receive-notifications">
+                <label for="receive-notifications"> I would like to receive curated bookseller recommendations, exclusive offers, and promotional emails.</label>
+            </div>
+            <input type="submit" value="Create Account" class="btn button2">
+            <p> By clicking "Create Account" you agree to the BookNook's <a href="term.html">Terms of Use</a></p>
+        </form>
+    </div> 
+    <div class="login-form">
+        <div id="close-login-btn" class="fas fa-times"></div>
+        <form action="/login" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+            <div id="forgotPassword">Forgot password? <a href="#" id="forgotPassword-btn">Click here</a></div>
+            <div id="createAccount">Don't have an account? <a href="#" id="register-btn">Create one</a></div>
+            <div id="adminAccount"><a href="#" id="admin-btn">Log in as an Admin</a></div>
+        </form>
+    </div>
+    <div class="forgot-form" id="forgotForm">
+        <div id="close-forgot-btn" class="fas fa-times"></div>
+        <form action="/forgot" method="post">
+            <h3>Password</h3>
+            <span>Username/Email</span>
+            <input type="text" name="email" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your new password" id="">
+            <input type="submit" value="Change" class="btn button2">
+        </form>
+    </div>
+
+
+    <div class="admin-form" id="adminForm">
+        <div id="close-admin-btn" class="fas fa-times"></div>
+        <form action="/admin" method="post">
+            <h3>Sign in</h3>
+            <span>Username/Email</span>
+            <input type="text" name="user_name" placeholder="enter your email" id="email">
+            <span>Password</span>
+            <input type="password" name="password_" placeholder="enter your password" id="">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <input type="submit" value="sign in" class="btn button2">
+        </form>
+    </div>
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

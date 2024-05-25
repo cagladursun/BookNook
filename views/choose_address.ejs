@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/494ed6a733.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-1">
+        <a href="/BookNook" class="btn button1">
+            <img src="images/logo.png" width="200px">
+         </a>
+         <div class="category">
+            <button>Category  
+                <form><i class="fa-solid fa-caret-down"></i></form>      
+            </button>
+            <div class="content">
+                <a href="#" id="Literature">Literature</a>
+                <a href="#" id="Biography">Biography</a>
+                <a href="#" id="Classic">Classic</a>
+                <a href="#" id="Fantastic">Fantastic</a>
+                <a href="#" id="History">History</a>
+                <a href="#" id="Science-Fiction">Science Fiction</a>
+                <a href="#" id="Psychology">Psychology</a>
+                <a href="#" id="Horror">Horror</a>
+                <a href="#" id="Thriller">Thriller</a>
+                <a href="#" id="Romance">Romance</a>
+                <a href="#" id="Cookbook&Food">Cookbook & Food</a>
+                <a href="#" id="Mystery">Mystery</a>
+                <a href="#" id="Poetry">Poetry</a>
+                <a href="#" id="Self-Improvement">Self Improvement</a>
+                <a href="#" id="Religion">Religion</a>
+                <div id="output"></div>
+            </div>
+        </div>
+        <form action="/search" method="post">
+            <input type="text" name="searchBox" class="search-form">
+            <button type="submit" class = "searchbutton" id="searchbutton">Search</button>
+          </form>
+        <div class="icons">
+            <a href="/cart" class="fa-solid fa-cart-shopping"></a>
+            <div id="login-btn" class="fas fa-user" ></div>
+        </div>
+    </div>
+</header>
+
+<% if (locals.address) { %>
+    <% for (let i = 0; i < locals.address.name_.length; i++) { %>
+      <button class="address-button" onclick="selectAddress('<%= locals.address.name_[i] %>', '<%= locals.address.street[i] %>', '<%= locals.address.post_code[i] %>', '<%= locals.address.neighbourhood[i] %>', '<%= locals.address.phone_number[i] %>', '<%= locals.address.country[i] %>', '<%= locals.address.details[i] %>')">
+        <div class="card0">
+          <div class="name">
+            <p><%= locals.address.name_[i] %></p>
+          </div>
+          <div class="street">
+            <p><i class="fa-solid fa-location-dot"> </i> <%= locals.address.street[i] %>, <%= locals.address.post_code[i] %></p>
+          </div>
+          <div class="neighbourhood">
+            <p>Neighbourhood: <%= locals.address.neighbourhood[i] %></p>
+          </div>
+          <div class="phone_number">
+            <p><i class="fa-solid fa-phone"> </i> Phone number: </i><%= locals.address.phone_number[i] %></p>
+          </div>
+          <div class="country">
+            <p>Country: <%= locals.address.country[i] %></p>
+          </div>
+          <div class="details">
+            <p>Details: <%= locals.address.details[i] %></p>
+          </div>
+        </div>
+      </button>
+    <% } %>
+  <% } else { %>
+    <h1>error</h1>
+  <% } %>
+  
+  <script>
+    function selectAddress(name_, street, post_code, neighbourhood, phone_number, country, details) {
+      const addressData = {
+        name_: name_,
+        street: street,
+        post_code: post_code,
+        neighbourhood: neighbourhood,
+        phone_number: phone_number,
+        country: country,
+        details: details,
+      };
+  
+      fetch('/saveAddress', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ addressData }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Your order is created. Have a nice day!');
+          window.location.href = '/BookNook';
+        } else {
+          console.error('Failed to save address:', data.error);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+
+ <div id="footer-container"></div>
+ <script src="script.js"></script>
+</body>
+</html>
