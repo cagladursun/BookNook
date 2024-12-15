@@ -210,9 +210,20 @@ app.get('/check-login', (req, res) => {
 
 //to insert new address data to the database
 app.post('/address_reg', (req, res) => {
-    const {name_, country ,post_code,neighbourhood, street, phone_number,details} = req.body;
-    user_name = req.session.user_name;
+  console.log('Request body:', req.body);
+    console.log('Session username:', req.session.user_name);
 
+    const { name_, country, post_code, neighbourhood, street, phone_number, details } = req.body;
+    const user_name = req.session.user_name;
+
+    if (!name_ || !country || !post_code || !neighbourhood || !street || !phone_number || !details || !user_name) {
+        return res.send(`
+          <script>
+            alert("All fields are required.");
+            window.location.href = '/BookNook';
+          </script>
+        `);
+    }
     // If the username is not taken, insert the user into the database
     const query = 'INSERT INTO address (name_,user_name, country ,post_code,neighbourhood, street, phone_number,details) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     db.query(query, [name_,user_name, country ,post_code,neighbourhood, street, phone_number,details], (err, result) => {
