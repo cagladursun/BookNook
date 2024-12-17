@@ -145,10 +145,10 @@
                 </div>
             </div>
             <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
+                <label for="radio1" class="manual-btn" id="radio_1"></label>
+                <label for="radio2" class="manual-btn" id="radio_2"></label>
+                <label for="radio3" class="manual-btn" id="radio_3"></label>
+                <label for="radio4" class="manual-btn" id="radio_4"></label>
             </div>
         </div>
       </div>
@@ -157,7 +157,7 @@
             <div class="top15">
                 <h2 class="book-category">Top 15</h2>
                 <button class="pre-btn"><img src="images/arrow-left.png" alt="" width="40px"></button>
-                <button class="nxt-btn"><img src="images/arrow-right.png" alt="" width="40px"></button>
+                <button class="nxt-btn"><img src="images/arrow-right.png" alt="" width="40px" id="right-button"></button>
                 
                 <div class="bookcontainer">
                     <% for (let i = 0; i+2 < locals.allBooks.topbooks.bookid.length; i= i + 3) { %>
